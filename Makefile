@@ -20,11 +20,11 @@ build:
 .PHONY: dist
 dist:
 	mkdir -p $(DIST)
-	GOOS=linux GOARCH=amd64 go build -o restore -ldflags $(LDFLAGS) ./main.go
+	CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -o restore -ldflags $(LDFLAGS) ./main.go
 	tar -zcvf $(DIST)/helm-restore-linux-$(VERSION).tgz restore README.md LICENSE.txt plugin.yaml
-	GOOS=darwin GOARCH=amd64 go build -o restore -ldflags $(LDFLAGS) ./main.go
+	CGO_ENABLED=0 GOOS=darwin GOARCH=amd64 go build -o restore -ldflags $(LDFLAGS) ./main.go
 	tar -zcvf $(DIST)/helm-restore-macos-$(VERSION).tgz restore README.md LICENSE.txt plugin.yaml
-	GOOS=windows GOARCH=amd64 go build -o restore.exe -ldflags $(LDFLAGS) ./main.go
+	CGO_ENABLED=0 GOOS=windows GOARCH=amd64 go build -o restore.exe -ldflags $(LDFLAGS) ./main.go
 	tar -zcvf $(DIST)/helm-restore-windows-$(VERSION).tgz restore.exe README.md LICENSE.txt plugin.yaml
 	rm restore
 	rm restore.exe
