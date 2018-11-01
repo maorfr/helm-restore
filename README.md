@@ -14,7 +14,7 @@ $ helm restore [flags] RELEASE_NAME
 
 ```
   -l, --label string              label to select tiller resources by (default "OWNER=TILLER,STATUS=DEPLOYED")
-      --tiller-namespace string   
+      --tiller-namespace string   namespace of Tiller (default "kube-system")   
 ```
 
 ## Install
@@ -33,7 +33,7 @@ this is how recommend doing it.
 First, set up your environment:
 
 - You need to have [Go](http://golang.org) installed. Make sure to set `$GOPATH`
-- If you don't have [Glide](http://glide.sh) installed, this will install it into
+- If you don't have [Dep](https://github.com/golang/dep) installed, this will install it into
   `$GOPATH/bin` for you.
 
 Clone this repo into your `$GOPATH`. You can use `go get -d github.com/maorfr/helm-restore`

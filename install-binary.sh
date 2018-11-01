@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-# Combination of the Glide and Helm scripts, with technosophos' own tweaks.
+# Combination of the Dep and Helm scripts, with technosophos' own tweaks.
 
 PROJECT_NAME="helm-restore"
 PROJECT_GH="maorfr/$PROJECT_NAME"

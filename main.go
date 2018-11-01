@@ -1,6 +1,7 @@
 package main
 
 import (
+	"errors"
 	"os"
 
 	restore "github.com/maorfr/helm-restore/pkg"
@@ -18,6 +19,12 @@ func main() {
 		Use:   "restore [flags] RELEASE_NAME",
 		Short: "restore last deployed release to original state",
 		RunE:  run,
+		Args: func(cmd *cobra.Command, args []string) error {
+			if len(args) != 1 {
+				return errors.New("RELEASE_NAME is required")
+			}
+			return nil
+		},
 	}
 
 	f := cmd.Flags()
