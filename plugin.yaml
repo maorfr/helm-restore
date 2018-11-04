@@ -1,7 +1,7 @@
 name: "restore"
 # Version is the version of Helm plus the number of official builds for this plugin
-version: "2.11.0+2"
-usage: "restore [flags] RELEASE_NAME"
+version: "2.11.0+3"
+usage: "restore last deployed release to originial state"
 description: "restore last deployed release to original state"
 command: "$HELM_PLUGIN_DIR/restore"
 hooks:
