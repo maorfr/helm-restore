@@ -5,6 +5,7 @@ import (
 	"io/ioutil"
 	"log"
 	"os"
+	"strings"
 
 	utils "github.com/maorfr/helm-plugin-utils/pkg"
 )
@@ -31,7 +32,12 @@ func Restore(releaseName, tillerNamespace, label string) error {
 	}
 	applyCmd := []string{"kubectl", "apply", "--namespace", releases[0].Namespace, "-f", fileName}
 	output := utils.Execute(applyCmd)
-	log.Print((string)(output))
+	for _, line := range strings.Split((string)(output), "\n") {
+		if line == "" {
+			continue
+		}
+		log.Print(line)
+	}
 	os.Remove(fileName)
 	return nil
 }
