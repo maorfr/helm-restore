@@ -1,8 +1,8 @@
 name: "restore"
-# Version is the version of Helm plus the number of official builds for this plugin
-version: "2.11.0+3"
+version: "0.1.0"
 usage: "restore last deployed release to originial state"
 description: "restore last deployed release to original state"
-command: "$HELM_PLUGIN_DIR/restore"
+command: "$HELM_PLUGIN_DIR/bin/restore"
 hooks:
   install: "$HELM_PLUGIN_DIR/install-binary.sh"
+  update: "$HELM_PLUGIN_DIR/install-binary.sh"
